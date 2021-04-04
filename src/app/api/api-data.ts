@@ -1,4 +1,4 @@
-import { ApiMeta } from "./api-meta";
+import { ApiMeta } from './api-meta';
 
 export type ApiResult = {
     data: any;

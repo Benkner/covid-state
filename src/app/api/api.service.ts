@@ -20,7 +20,7 @@ export class ApiService {
       result => {
         Object.keys(result.data).forEach(key => {
           const entry = result.data[key];
-          states.push({ abbreviation: key, name: entry.name, id: entry.id })
+          states.push({ abbreviation: key, name: entry.name, id: entry.id });
         });
         sub.next(states);
         sub.complete();

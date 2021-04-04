@@ -10,7 +10,6 @@ import { MaterialModule } from './layout/material/material.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,
