@@ -1,33 +1,51 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
-import { ApiResult } from './api-data';
-import { ApiState } from './api-state';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { State } from '../_classes/state';
+import { Statistics } from '../_classes/statistics';
+import { ResponseStates, ResponseStatistics } from './api-response-types';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private readonly apiUrl = 'https://api.corona-zahlen.org/';
+  private readonly apiUrlRki = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0/query?';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  /** Get a list of all available states. */
-  getStateList$(): Observable<ApiState[]> {
-    const sub = new ReplaySubject<ApiState[]>(1);
-    const states: ApiState[] = [];
-    this.http.get<ApiResult>(this.apiUrl + 'states').subscribe(
-      result => {
-        Object.keys(result.data).forEach(key => {
-          const entry = result.data[key];
-          states.push({ abbreviation: key, name: entry.name, id: entry.id });
-        });
-        sub.next(states);
-        sub.complete();
-      },
-      () => {
-        sub.error('Could not get states.');
-      });
-    return sub.asObservable();
+  getStateList(): Observable<State[]> {
+    const url = this.apiUrlRki +
+      "where=1%3D1" +
+      "&outFields=Bundesland,IdBundesland" +
+      "&returnDistinctValues=true" +
+      "&f=json";
+    return this.http.get<ResponseStates>(url)
+      .pipe(map<ResponseStates, State[]>(x => x.features.map(a => {
+        return { name: a.attributes.Bundesland, id: a.attributes.IdBundesland }
+      })));
+  }
+
+  getDatenstand() {
+    const url = this.apiUrlRki +
+      "where=1%3D1" +
+      "&outFields=Datenstand" +
+      "&returnDistinctValues=true&outSR=4326&f=json";
+
+    return this.http.get(url).pipe(map((x: any) => x.features[0].attributes.Datenstand));
+  }
+
+  germanyHistory(days: number): Observable<Statistics> {
+    const outStatistics = [
+      { 'statisticType': 'sum', 'onStatisticField': 'AnzahlFall', 'outStatisticFieldName': 'cases' },
+      { 'statisticType': 'sum', 'onStatisticField': 'AnzahlTodesfall', 'outStatisticFieldName': 'deaths' },
+      { 'statisticType': 'sum', 'onStatisticField': 'AnzahlGenesen', 'outStatisticFieldName': 'recovered' },
+      { 'statisticType': 'min', 'onStatisticField': 'MeldeDatum', 'outStatisticFieldName': 'date' }];
+    const url = this.apiUrlRki +
+      "where=MeldeDatum >= CURRENT_TIMESTAMP - INTERVAL '" + (days + 1) + "' DAY" +
+      " AND MeldeDatum <= CURRENT_TIMESTAMP - INTERVAL '1' DAY" +
+      "&outStatistics=" + JSON.stringify(outStatistics) +
+      "&f=json";
+    return this.http.get<ResponseStatistics>(url).pipe(map(x => x.features[0].attributes));
   }
 }

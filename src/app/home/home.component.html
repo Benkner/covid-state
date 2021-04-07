@@ -1,7 +1,42 @@
-<mat-form-field appearance="outline">
-    <mat-label>Region</mat-label>
-    <mat-select>
-        <mat-option>Deutschland</mat-option>
-        <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
-    </mat-select>
-</mat-form-field>
+<div fxLayout="column" fxLayoutGap="" fxLayoutAlign="center center">
+    <div fxLayout="row wrap" fxLayoutGap="30px 0px grid" fxLayoutAlign="center center">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Gebiet</mat-label>
+            <mat-select [(ngModel)]='region' (selectionChange)="updateStatistics()">
+                <mat-option [value]="regionEnum.Country">Deutschland</mat-option>
+                <mat-option [value]="regionEnum.State">Bundesland</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf='region===regionEnum.State' appearance="outline">
+            <mat-label>Bundesland</mat-label>
+            <mat-select [(value)]='stateSelected' [compareWith]="compareState" (selectionChange)="updateStatistics()">
+                <mat-option [value]=undefined></mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+    <div fxLayoutGap="30px 0px grid" fxLayoutAlign="center center">
+        <mat-form-field appearance="outline">
+            <mat-label>Zeitspanne</mat-label>
+            <mat-select [(ngModel)]='daysSelected' (selectionChange)="updateStatistics()">
+                <mat-option [value]=7>1 Woche</mat-option>
+                <mat-option [value]=14>2 Wochen</mat-option>
+                <mat-option [value]=21>3 Wochen</mat-option>
+                <mat-option [value]=28>4 Wochen</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        Fälle: {{statistics?.cases}} <br>
+        Tote: {{statistics?.deaths}} <br>
+        Genesen: {{statistics?.recovered}}
+
+        <p class="light">
+            Data from: {{datasetDate}}
+        </p>
+    </div>
+</div>
