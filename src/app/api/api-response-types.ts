@@ -1,9 +1,18 @@
+import { Statistics } from '../_classes/statistics';
+
 export type ResponseStates = {
-    features: AttributeState[];
+    features: {
+        attributes: {
+            Bundesland: string;
+            IdBundesland: number;
+        }
+    }[],
     fields: any[];
 }
 
-export type AttributeState = {
-    Bundesland: string;
-    IdBundesland: number;
+export type ResponseStatistics = {
+    features: {
+        attributes: Statistics
+    }[],
+    fields: any[];
 }
