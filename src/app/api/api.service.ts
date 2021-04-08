@@ -29,7 +29,7 @@ export class ApiService {
       "&f=json";
     return this.http.get<ResponseStates>(url)
       .pipe(map<ResponseStates, State[]>(x => x.features.map(a => {
-        return { name: a.attributes.Bundesland, id: a.attributes.IdBundesland }
+        return { name: a.attributes.Bundesland, id: a.attributes.IdBundesland };
       })));
   }
 
