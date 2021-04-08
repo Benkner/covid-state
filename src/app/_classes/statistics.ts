@@ -3,4 +3,4 @@ export type Statistics = {
     deaths: number;
     recovered: number;
     status: string;
-}
+};

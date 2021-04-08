@@ -8,11 +8,11 @@ export type ResponseStates = {
         }
     }[],
     fields: any[];
-}
+};
 
 export type ResponseStatistics = {
     features: {
         attributes: Statistics
     }[],
     fields: any[];
-}
+};
