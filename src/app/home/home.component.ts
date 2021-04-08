@@ -10,16 +10,15 @@ import { Statistics } from '../_classes/statistics';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  region: Region = Region.Country;
   /** Variable for accessing enum in template */
   readonly regionEnum: typeof Region = Region;
-
   states: State[] = [];
-  stateSelected?: State;
 
-  daysSelected = 7;
-  datasetDate?: string;
-  statistics: Statistics | undefined
+  regionSelected: Region = Region.Country;
+  stateSelected?: State;
+  weeksSelected = 1;
+
+  statistics: Statistics | undefined;
 
   constructor(
     private api: ApiService
@@ -32,10 +31,6 @@ export class HomeComponent implements OnInit {
       result => {
         this.states = result;
       });
-
-    this.api.getDatenstand().subscribe(result => {
-      this.datasetDate = result;
-    });
   }
 
   /** Compare for objects in dropdown. */
@@ -48,9 +43,8 @@ export class HomeComponent implements OnInit {
 
   /** Update statistics for selected values. */
   updateStatistics(): void {
-    this.api.germanyHistory(this.daysSelected).subscribe(result => {
+    this.api.getHistoryGermany(this.weeksSelected * 7).subscribe(result => {
       this.statistics = result;
     });
   }
-
 }
