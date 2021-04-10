@@ -9,6 +9,7 @@ import { ResponseListStates, ResponseStatistics } from './api-response-types';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private readonly apiUrlRki = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0/query?';
+  /* tslint:disable:quotemark object-literal-key-quotes */
   private readonly outStatistics = [
     { 'statisticType': 'sum', 'onStatisticField': 'AnzahlFall', 'outStatisticFieldName': 'cases' },
     { 'statisticType': 'sum', 'onStatisticField': 'AnzahlTodesfall', 'outStatisticFieldName': 'deaths' },

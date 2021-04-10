@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'covid-state';
+
+  tabItems = [
+    { label: 'Germany', path: 'germany' },
+    { label: 'State', path: 'state' }
+  ];
 }

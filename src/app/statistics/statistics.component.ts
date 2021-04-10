@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { from, Observable } from 'rxjs';
 import { Statistics } from '../_classes/statistics';
+import { StatisticsService } from '../_services/statistics.service';
 
 @Component({
   selector: 'app-statistics',
@@ -7,12 +9,14 @@ import { Statistics } from '../_classes/statistics';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
+  statistics$: Observable<Statistics> = from([{}]);
 
-  @Input() statistics?: Statistics;
-
-  constructor() { }
+  constructor(
+    private statisticsService: StatisticsService
+  ) { }
 
   ngOnInit(): void {
+    this.statistics$ = this.statisticsService.getStatistics$();
   }
 
 }

@@ -1,0 +1,7 @@
+<mat-form-field appearance="outline">
+    <mat-label>State</mat-label>
+    <mat-select [(value)]='stateSelected' [compareWith]="compareState" (selectionChange)="setSelectedState()">
+        <mat-option [value]=undefined></mat-option>
+        <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
+    </mat-select>
+</mat-form-field>

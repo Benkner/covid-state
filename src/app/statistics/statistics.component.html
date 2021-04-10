@@ -1,14 +1,14 @@
-<div class="statistics">
+<div *ngIf="statistics$ | async as statistics" class="statistics">
     <mat-card>
         <mat-card-title>
-            Statistik
+            Statistic
         </mat-card-title>
         <mat-card-subtitle>
-            vom {{statistics?.status}}
+            Status: {{statistics?.status}}
         </mat-card-subtitle>
-        Fälle: {{statistics?.cases}} <br>
-        Tote: {{statistics?.deaths}} <br>
-        Genesen: {{statistics?.recovered}}
+        Cases: {{statistics?.cases}} <br>
+        Deaths: {{statistics?.deaths}} <br>
+        Recovered: {{statistics?.recovered}}
 
     </mat-card>
 </div>

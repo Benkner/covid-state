@@ -4,19 +4,25 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { MaterialModule } from './layout/material/material.module';
-import { StatisticsComponent } from './statistics/statistics.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { GermanyComponent } from './germany/germany.component';
+import { MaterialModule } from './layout/material/material.module';
+import { StateSelectionComponent } from './state-selection/state-selection.component';
+import { StateComponent } from './state/state.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { TimeSelectionComponent } from './time-selection/time-selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     StatisticsComponent,
+    GermanyComponent,
+    TimeSelectionComponent,
+    StateComponent,
+    StateSelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +34,6 @@ import { environment } from '../environments/environment';
     MaterialModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
   ],

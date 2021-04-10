@@ -1,6 +1,6 @@
 export type Statistics = {
-    cases: number;
-    deaths: number;
-    recovered: number;
-    status: string;
+    cases?: number;
+    deaths?: number;
+    recovered?: number;
+    status?: string;
 };
