@@ -9,4 +9,5 @@ Shows simple covid statistics for germany and its states.
 - Customizations for personal dashboard with R7
 - Map for selecting states
 - Translations german/english
+- Save last settings
 

@@ -9,8 +9,7 @@ import { ResponseListStates, ResponseStatistics } from './api-response-types';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private readonly apiUrlRki = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0/query?';
-
-  private outStatistics = [
+  private readonly outStatistics = [
     { 'statisticType': 'sum', 'onStatisticField': 'AnzahlFall', 'outStatisticFieldName': 'cases' },
     { 'statisticType': 'sum', 'onStatisticField': 'AnzahlTodesfall', 'outStatisticFieldName': 'deaths' },
     { 'statisticType': 'sum', 'onStatisticField': 'AnzahlGenesen', 'outStatisticFieldName': 'recovered' },
@@ -40,7 +39,8 @@ export class ApiService {
       " AND MeldeDatum <= CURRENT_TIMESTAMP - INTERVAL '1' DAY" +
       "&outStatistics=" + JSON.stringify(this.outStatistics) +
       "&f=json";
-    return this.http.get<ResponseStatistics>(url).pipe(map(x => x.features[0].attributes));
+    return this.http.get<ResponseStatistics>(url)
+      .pipe(map(x => x.features[0].attributes));
   }
 
   /** Get the statistics of a state of the last passed days. */
@@ -51,6 +51,7 @@ export class ApiService {
       " AND IdBundesland = " + stateId +
       "&outStatistics=" + JSON.stringify(this.outStatistics) +
       "&f=json";
-    return this.http.get<ResponseStatistics>(url).pipe(map(x => x.features[0].attributes));
+    return this.http.get<ResponseStatistics>(url)
+      .pipe(map(x => x.features[0].attributes));
   }
 }
