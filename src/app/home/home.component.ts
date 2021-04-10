@@ -43,8 +43,22 @@ export class HomeComponent implements OnInit {
 
   /** Update statistics for selected values. */
   updateStatistics(): void {
-    this.api.getHistoryGermany(this.weeksSelected * 7).subscribe(result => {
-      this.statistics = result;
-    });
+    this.statistics = undefined;
+    switch (this.regionSelected) {
+      case Region.Country:
+        this.api.getHistoryGermany(this.weeksSelected * 7).subscribe(result => {
+          this.statistics = result;
+        });
+        break;
+      case Region.State:
+        if (this.stateSelected !== undefined) {
+          this.api.getHistoryState(this.weeksSelected * 7, this.stateSelected?.id).subscribe(result => {
+            this.statistics = result;
+          });
+        } else {
+          console.log('show snack: select region');
+        }
+        break;
+    }
   }
 }

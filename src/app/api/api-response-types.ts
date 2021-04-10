@@ -1,6 +1,6 @@
 import { Statistics } from '../_classes/statistics';
 
-export type ResponseStates = {
+export type ResponseListStates = {
     features: {
         attributes: {
             Bundesland: string;

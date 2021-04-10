@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { State } from '../_classes/state';
 import { Statistics } from '../_classes/statistics';
-import { ResponseStates, ResponseStatistics } from './api-response-types';
+import { ResponseListStates, ResponseStatistics } from './api-response-types';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -27,8 +27,8 @@ export class ApiService {
       "&outFields=Bundesland,IdBundesland" +
       "&returnDistinctValues=true" +
       "&f=json";
-    return this.http.get<ResponseStates>(url)
-      .pipe(map<ResponseStates, State[]>(x => x.features.map(a => {
+    return this.http.get<ResponseListStates>(url)
+      .pipe(map<ResponseListStates, State[]>(x => x.features.map(a => {
         return { name: a.attributes.Bundesland, id: a.attributes.IdBundesland };
       })));
   }

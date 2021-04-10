@@ -3,6 +3,17 @@
     Covid-Status
 </mat-toolbar>
 
+<!-- <nav mat-tab-nav-bar>
+
+    <a mat-tab-link *ngFor="let item of menuItems" [routerLink]="item.path" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        <ng-container>
+            {{item.label}}
+        </ng-container>
+    </a>
+
+</nav> -->
+
 <main>
     <router-outlet></router-outlet>
 </main>
