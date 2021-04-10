@@ -63,6 +63,16 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "ghp": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ghp.ts"
+                }
+              ],
+              "baseHref": "https://benkner.github.io/covid-state/",
+              "outputPath": "dist/github-pages/covid-state"
             }
           }
         },

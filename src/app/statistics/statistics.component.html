@@ -1,14 +1,14 @@
 <div>
     <mat-card>
-        <h3>Statistik
-            <mat-icon>info</mat-icon>
-        </h3>
+        <mat-card-title>
+            Statistik
+        </mat-card-title>
+        <mat-card-subtitle>
+            vom {{statistics?.status}}
+        </mat-card-subtitle>
         Fälle: {{statistics?.cases}} <br>
         Tote: {{statistics?.deaths}} <br>
         Genesen: {{statistics?.recovered}}
 
-        <p class="light">
-            Status am {{statistics?.status}}
-        </p>
     </mat-card>
 </div>
