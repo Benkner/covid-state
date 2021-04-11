@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { ApiService } from '../api/api.service';
 import { AreaType } from '../_classes/areaType';
 import { State } from '../_classes/state';
@@ -9,7 +11,9 @@ import { StoreService } from '../_services/store.service';
   templateUrl: './state.component.html',
   styleUrls: ['./state.component.scss']
 })
-export class StateComponent implements OnInit {
+export class StateComponent implements OnInit, OnDestroy {
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
   states: State[] = [];
   stateSelected: State | undefined;
 
@@ -21,20 +25,27 @@ export class StateComponent implements OnInit {
   ngOnInit(): void {
     this.store.setAreaTypeSelected(AreaType.State);
 
-    this.api.getStateList().subscribe(
-      result => {
-        this.states = result;
+    this.api.getStateList()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        result => {
+          this.states = result;
 
-        // Set first state available
-        if (this.stateSelected === undefined && this.states.length > 0) {
-          this.setSelectedState(this.states[0]);
-        }
-      });
+          // Set first state available
+          if (this.stateSelected === undefined && this.states.length > 0) {
+            this.setSelectedState(this.states[0]);
+          }
+        });
 
     this.store.getStateSelected$().subscribe(
       state => {
         this.stateSelected = state;
       });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.unsubscribe();
   }
 
   setSelectedState(state: State): void {

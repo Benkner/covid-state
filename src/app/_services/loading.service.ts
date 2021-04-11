@@ -14,12 +14,12 @@ export class LoadingService {
     return this.loading.asObservable();
   }
 
-  addRequest(request: any) {
+  addRequest(request: any): void {
     this.requests.push(request);
     this.nextOnChange(this.loading, true);
   }
 
-  removeRequest(request: any) {
+  removeRequest(request: any): void {
     this.requests = this.requests.filter(x => x !== request);
     if (this.requests.length === 0) {
       this.nextOnChange(this.loading, false);
@@ -27,7 +27,7 @@ export class LoadingService {
   }
 
   /** Next a subject only on change. */
-  private nextOnChange(subject: BehaviorSubject<boolean>, newValue: boolean) {
+  private nextOnChange(subject: BehaviorSubject<boolean>, newValue: boolean): void {
     if (subject.value !== newValue) {
       subject.next(newValue);
     }

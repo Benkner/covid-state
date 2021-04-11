@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { StoreService } from '../_services/store.service';
 
 @Component({
@@ -8,18 +8,20 @@ import { StoreService } from '../_services/store.service';
   styleUrls: ['./time-selection.component.scss']
 })
 export class TimeSelectionComponent implements OnInit {
-  weeksSelected$: Observable<number> = from([1]);
+  weeksSelected$: Observable<number>;
 
   constructor(
     private store: StoreService
-  ) { }
-
-  ngOnInit(): void {
+  ) {
     this.weeksSelected$ = this.store.getWeeksSelected$();
   }
 
+  ngOnInit(): void {
+  }
+
   setWeeks(weeks: number | null): void {
-    if (weeks !== null)
+    if (weeks !== null) {
       this.store.setWeekSelected(weeks);
+    }
   }
 }

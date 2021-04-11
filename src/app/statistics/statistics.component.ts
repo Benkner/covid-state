@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Statistics } from '../_classes/statistics';
+import { LoadingService } from '../_services/loading.service';
 import { StatisticsService } from '../_services/statistics.service';
 
 @Component({
@@ -9,14 +10,18 @@ import { StatisticsService } from '../_services/statistics.service';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
-  statistics$: Observable<Statistics> = from([{}]);
+  statistics$: Observable<Statistics>;
+  loading$: Observable<boolean>;
 
   constructor(
-    private statisticsService: StatisticsService
-  ) { }
+    private statisticsService: StatisticsService,
+    private loadingService: LoadingService
+  ) {
+    this.statistics$ = this.statisticsService.getStatistics$();
+    this.loading$ = this.loadingService.getLoading$();
+  }
 
   ngOnInit(): void {
-    this.statistics$ = this.statisticsService.getStatistics$();
   }
 
 }

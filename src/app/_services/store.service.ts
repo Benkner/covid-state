@@ -37,10 +37,10 @@ export class StoreService {
   }
   setWeekSelected(weeks: number): void {
     this.weeksSelected.next(weeks);
-    localStorage.setItem(this.LOCAL_STORAGE_WEEKS, weeks.toString())
+    localStorage.setItem(this.LOCAL_STORAGE_WEEKS, weeks.toString());
   }
 
-  private loadConfig() {
+  private loadConfig(): void {
     const weeks = localStorage.getItem(this.LOCAL_STORAGE_WEEKS);
     if (weeks !== null) {
       this.weeksSelected.next(Number(weeks));
