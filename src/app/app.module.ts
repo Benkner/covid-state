@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GermanyComponent } from './germany/germany.component';
 import { MaterialModule } from './layout/material/material.module';
-import { StateSelectionComponent } from './state/state-selection/state-selection.component';
 import { StateComponent } from './state/state.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { TimeSelectionComponent } from './time-selection/time-selection.component';
@@ -21,8 +20,7 @@ import { TimeSelectionComponent } from './time-selection/time-selection.componen
     StatisticsComponent,
     GermanyComponent,
     TimeSelectionComponent,
-    StateComponent,
-    StateSelectionComponent,
+    StateComponent
   ],
   imports: [
     BrowserModule,

@@ -211,7 +211,7 @@ $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
 .theme-alternate {
   @include angular-material-theme($altTheme);
-  @include angular-material-theme($theme); // not altTheme.. switched also above
+  // @include angular-material-theme($theme); // not altTheme.. switched also above
   // @include angular-material-theme($altTheme);
 }
 

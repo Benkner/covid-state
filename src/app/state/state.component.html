@@ -1,8 +1,17 @@
 <div fxLayout="column" fxLayoutGap="0 0 grid" fxLayoutAlign="center center">
 
-    <app-statistics></app-statistics>
-    <app-time-selection></app-time-selection>
-    <hr>
-    <app-state-selection></app-state-selection>
+    <mat-form-field appearance="outline" class="state-selection">
+        <mat-label>State</mat-label>
+        <mat-select [(value)]='stateSelected' [compareWith]="compareState"
+            (selectionChange)="setSelectedState($event.value)">
+            <mat-option [value]=undefined></mat-option>
+            <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <ng-container *ngIf='stateSelected !== undefined'>
+        <app-statistics></app-statistics>
+        <app-time-selection></app-time-selection>
+    </ng-container>
 
 </div>
