@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api/api.service';
-import { State } from '../_classes/state';
-import { StoreService } from '../_services/store.service';
+import { ApiService } from '../../api/api.service';
+import { State } from '../../_classes/state';
+import { StoreService } from '../../_services/store.service';
 
 @Component({
   selector: 'app-state-selection',

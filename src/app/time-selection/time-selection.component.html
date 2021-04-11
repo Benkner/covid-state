@@ -1,5 +1,5 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-    <div>Letzte Wochen: <b>{{weeksSelected}}</b></div>
     <input matInput type="range" invert tickInterval="1" min="1" max="4" step="1" [(ngModel)]='weeksSelected'
-        (input)="setDays()">
+    (input)="setDays()">
+    <div>Last weeks: <b>{{weeksSelected}}</b></div>
 </div>
