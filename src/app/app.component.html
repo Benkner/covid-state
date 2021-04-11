@@ -1,7 +1,19 @@
-<mat-toolbar color='primary'>
-    <mat-icon class="icon">coronavirus</mat-icon>
-    Covid-State
+<mat-toolbar color='primary' fxLayout='row' fxLayoutAlign="space-between center">
+
+    <div fxLayout='row' fxLayoutAlign="center center">
+        <mat-icon class="icon">coronavirus</mat-icon>
+        Covid-State
+    </div>
+
+    <!-- Icons to the right -->
+    <div></div>
+
 </mat-toolbar>
+
+<!-- Reserving space for progress bar -->
+<div style="height: 1px;">
+    <mat-progress-bar *ngIf='(loading$|async) === true' color='accent' mode="query"></mat-progress-bar>
+</div>
 
 <nav mat-tab-nav-bar mat-align-tabs="center">
     <a mat-tab-link *ngFor="let item of tabItems" [routerLink]="item.path" routerLinkActive #rla="routerLinkActive"
