@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1618180198237,
+  "timestamp": 1618180429029,
   "index": "https://benkner.github.io/covid-state/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://benkner.github.io/covid-state/favicon.ico",
         "https://benkner.github.io/covid-state/index.html",
-        "https://benkner.github.io/covid-state/main.3115d24ab41b4c73973d.js",
+        "https://benkner.github.io/covid-state/main.93edd8b820fd5e771f3d.js",
         "https://benkner.github.io/covid-state/manifest.webmanifest",
         "https://benkner.github.io/covid-state/polyfills.94daefd414b8355106ab.js",
         "https://benkner.github.io/covid-state/runtime.7b63b9fd40098a2e8207.js",
@@ -52,8 +52,8 @@
     "https://benkner.github.io/covid-state/assets/icons/c-72.png": "06ea6d6dec274a659477dd70b12a17f365da1277",
     "https://benkner.github.io/covid-state/assets/icons/c-96.png": "35b68324d2dad839a95112301b5027da4bfd3cbc",
     "https://benkner.github.io/covid-state/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://benkner.github.io/covid-state/index.html": "6462b6971ca603e12ab785a990388ca0661842a5",
-    "https://benkner.github.io/covid-state/main.3115d24ab41b4c73973d.js": "e32070dc4ab7c2c689ff6b3a2b30d6c5fa042c02",
+    "https://benkner.github.io/covid-state/index.html": "4a943ac70b7d110ad21c82ff6630f5758f89f5f9",
+    "https://benkner.github.io/covid-state/main.93edd8b820fd5e771f3d.js": "52c5d01600da7c09b6d4ee09b6561db8c95ea72d",
     "https://benkner.github.io/covid-state/manifest.webmanifest": "eaf161aad05d701e8ece616a6406c254b73f94a6",
     "https://benkner.github.io/covid-state/polyfills.94daefd414b8355106ab.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
     "https://benkner.github.io/covid-state/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
