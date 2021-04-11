@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { from, Observable } from 'rxjs';
 import { StoreService } from '../_services/store.service';
 
 @Component({
@@ -7,22 +8,18 @@ import { StoreService } from '../_services/store.service';
   styleUrls: ['./time-selection.component.scss']
 })
 export class TimeSelectionComponent implements OnInit {
-  weeksSelected = 1;
+  weeksSelected$: Observable<number> = from([1]);
 
   constructor(
     private store: StoreService
   ) { }
 
   ngOnInit(): void {
-    this.store.getDaysSelected$()
-      // TODO unsubscribe
-      .subscribe(value => {
-        this.weeksSelected = value / 7;
-      });
+    this.weeksSelected$ = this.store.getWeeksSelected$();
   }
 
-  setDays(): void {
-    this.store.setDaysSelected(this.weeksSelected * 7);
+  setWeeks(weeks: number | null): void {
+    if (weeks !== null)
+      this.store.setWeekSelected(weeks);
   }
-
 }

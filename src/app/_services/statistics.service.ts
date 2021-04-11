@@ -11,7 +11,7 @@ import { StoreService } from './store.service';
 export class StatisticsService {
   areaTypeSelected: AreaType = AreaType.Country;
   stateSelected?: State;
-  daysSelected = 7;
+  weeksSelected = 1;
 
   statistics = new BehaviorSubject<Statistics>({});
 
@@ -27,8 +27,8 @@ export class StatisticsService {
       this.stateSelected = value;
       this.update();
     });
-    this.store.getDaysSelected$().subscribe(value => {
-      this.daysSelected = value;
+    this.store.getWeeksSelected$().subscribe(value => {
+      this.weeksSelected = value;
       this.update();
     });
   }
@@ -38,25 +38,21 @@ export class StatisticsService {
   }
 
   private update(): void {
-    if (this.areaTypeSelected === AreaType.State && this.stateSelected === undefined) {
-      this.statistics.next({});
-      console.log('invalid state..');
-      // TODO
-    } else {
-      switch (this.areaTypeSelected) {
-        case AreaType.Country:
-          this.api.getHistoryGermany(this.daysSelected).subscribe(result => {
+    switch (this.areaTypeSelected) {
+      case AreaType.Country:
+        this.api.getHistoryGermany(this.weeksSelected * 7).subscribe(result => {
+          this.statistics.next(result);
+        });
+        break;
+      case AreaType.State:
+        if (this.stateSelected !== undefined) {
+          this.api.getHistoryState(this.weeksSelected * 7, this.stateSelected.id).subscribe(result => {
             this.statistics.next(result);
           });
-          break;
-        case AreaType.State:
-          if (this.stateSelected !== undefined) {
-            this.api.getHistoryState(this.daysSelected, this.stateSelected.id).subscribe(result => {
-              this.statistics.next(result);
-            });
-          }
-          break;
-      }
+        } else {
+          this.statistics.next({});
+        }
+        break;
     }
   }
 }

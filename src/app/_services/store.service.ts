@@ -8,7 +8,7 @@ import { State } from '../_classes/state';
 export class StoreService {
   private areaTypeSelected: BehaviorSubject<AreaType> = new BehaviorSubject<AreaType>(AreaType.Country);
   private stateSelected: BehaviorSubject<State | undefined> = new BehaviorSubject<State | undefined>(undefined);
-  private daysSelected: BehaviorSubject<number> = new BehaviorSubject<number>(7);
+  private weeksSelected: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
   constructor() { }
 
@@ -28,11 +28,11 @@ export class StoreService {
     // Save to settings
   }
 
-  getDaysSelected$(): Observable<number> {
-    return this.daysSelected.asObservable();
+  getWeeksSelected$(): Observable<number> {
+    return this.weeksSelected.asObservable();
   }
-  setDaysSelected(days: number): void {
-    this.daysSelected.next(days);
+  setWeekSelected(days: number): void {
+    this.weeksSelected.next(days);
     // Save to settings
   }
 }
