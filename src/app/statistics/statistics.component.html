@@ -4,15 +4,15 @@
     <table class="full">
         <tr>
             <td> Cases:</td>
-            <td class="right"> {{statistics?.cases}}</td>
+            <td class="right" [hidden]='(loading$ |async) === true'> {{statistics?.cases}}</td>
         </tr>
         <tr>
             <td> Deaths:</td>
-            <td class="right"> {{statistics?.deaths}}</td>
+            <td class="right" [hidden]='(loading$ |async) === true'> {{statistics?.deaths}}</td>
         </tr>
         <tr>
             <td> Recovered:</td>
-            <td class="right"> {{statistics?.recovered}}</td>
+            <td class="right" [hidden]='(loading$ |async) === true'> {{statistics?.recovered}}</td>
         </tr>
     </table>
     <!-- </mat-card> -->
