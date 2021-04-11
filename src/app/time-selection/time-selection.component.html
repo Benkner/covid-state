@@ -1,10 +1,10 @@
 <mat-card>
-    <div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="row" fxLayoutGap="3px" fxLayoutAlign="center center">
 
-        <mat-slider matInput color='accent' defaultColor='primary' type="range" tickInterval="1" min="1" max="4"
-            step="1" thumbLabel=true [ngModel]='weeksSelected$|async' (input)="setWeeks($event.value)" aria-label="Time selection">
-        </mat-slider>
         <div>Last weeks: <b>{{(weeksSelected$ | async)?.valueOf()}}</b></div>
+        <mat-slider matInput color='primary' type="range" tickInterval="1" min="1" max="4" step="1" thumbLabel=true
+            [ngModel]='weeksSelected$|async' (input)="setWeeks($event.value)" aria-label="Time selection">
+        </mat-slider>
         <!-- <input matInput color='primary' type="range" tickInterval="1" min="1" max="4" step="1" [(ngModel)]='weeksSelected'
             (input)="setWeeks2()"> -->
     </div>
