@@ -8,6 +8,8 @@
     "build:prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
+    "stats:create": "ng build --stats-json",
+    "stats:show": "webpack-bundle-analyzer dist/covid-state/stats.json",
     "e2e": "ng e2e",
     "deploy:ghp": "ng build --prod -c=ghp && npx angular-cli-ghpages -no-silent --dir=dist/github-pages/covid-state"
   },
@@ -47,6 +49,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.3",
-    "typescript": "~4.1.5"
+    "typescript": "~4.1.5",
+    "webpack-bundle-analyzer": "4.4.0"
   }
 }
