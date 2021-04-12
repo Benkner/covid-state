@@ -15,6 +15,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { TimeSelectionComponent } from './time-selection/time-selection.component';
 import { LoadingInterceptorService } from './_services/loading-interceptor.service';
 import { HeaderComponent } from './_layout/header/header.component';
+import { NotFoundComponent } from './_layout/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeaderComponent } from './_layout/header/header.component';
     GermanyComponent,
     TimeSelectionComponent,
     StateComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

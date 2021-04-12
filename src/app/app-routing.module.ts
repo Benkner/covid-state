@@ -14,6 +14,14 @@ const routes: Routes = [
   {
     path: 'state',
     component: StateComponent
+  },
+  {
+    path: 'not-found',
+    loadChildren: () => import('./_layout/not-found/not-found.module').then(m => m.NotFoundModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found'
   }
 ];
 
