@@ -1,6 +1,12 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StatisticsComponent } from '../statistics/statistics.component';
+import { TimeSelectionComponent } from '../time-selection/time-selection.component';
+import { MaterialModule } from '../_layout/material/material.module';
 import { StateComponent } from './state.component';
+
 
 describe('StateComponent', () => {
   let component: StateComponent;
@@ -8,9 +14,19 @@ describe('StateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StateComponent ]
+      imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        MaterialModule
+      ],
+      declarations: [
+        StatisticsComponent,
+        TimeSelectionComponent,
+        StateComponent
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

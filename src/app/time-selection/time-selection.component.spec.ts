@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../_layout/material/material.module';
 
 import { TimeSelectionComponent } from './time-selection.component';
 
@@ -8,9 +10,13 @@ describe('TimeSelectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimeSelectionComponent ]
+      imports: [
+        FormsModule,
+        MaterialModule
+      ],
+      declarations: [TimeSelectionComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
