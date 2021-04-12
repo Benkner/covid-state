@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../_layout/material/material.module';
-
 import { TimeSelectionComponent } from './time-selection.component';
 
 describe('TimeSelectionComponent', () => {

@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { StatisticsComponent } from '../statistics/statistics.component';
 import { TimeSelectionComponent } from '../time-selection/time-selection.component';
 import { MaterialModule } from '../_layout/material/material.module';
-
 import { GermanyComponent } from './germany.component';
+
 
 describe('GermanyComponent', () => {
   let component: GermanyComponent;
