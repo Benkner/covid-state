@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ApiService } from '../api/api.service';
 import { AreaType } from '../_classes/areaType';
 import { State } from '../_classes/state';
 import { Statistics } from '../_classes/statistics';
+import { ApiService } from './api.service';
 import { StoreService } from './store.service';
 
 /** Updating the statistics. */

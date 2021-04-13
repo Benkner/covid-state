@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { State } from '../_classes/state';
 import { Statistics } from '../_classes/statistics';
-import { ResponseListStates, ResponseStatistics } from './api-response-types';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -27,8 +26,8 @@ export class ApiService {
       "&outFields=Bundesland,IdBundesland" +
       "&returnDistinctValues=true" +
       "&f=json";
-    return this.http.get<ResponseListStates>(url)
-      .pipe(map<ResponseListStates, State[]>(x => x.features.map(a => {
+    return this.http.get<ArcGisResponseTypeListStates>(url)
+      .pipe(map<ArcGisResponseTypeListStates, State[]>(x => x.features.map(a => {
         return { name: a.attributes.Bundesland, id: a.attributes.IdBundesland };
       })));
   }
@@ -40,7 +39,7 @@ export class ApiService {
       " AND MeldeDatum <= CURRENT_TIMESTAMP - INTERVAL '1' DAY" +
       "&outStatistics=" + JSON.stringify(this.outStatistics) +
       "&f=json";
-    return this.http.get<ResponseStatistics>(url)
+    return this.http.get<ArcGisResponseTypeStatistics>(url)
       .pipe(map(x => x.features[0].attributes));
   }
 
@@ -52,7 +51,24 @@ export class ApiService {
       " AND IdBundesland = " + stateId +
       "&outStatistics=" + JSON.stringify(this.outStatistics) +
       "&f=json";
-    return this.http.get<ResponseStatistics>(url)
+    return this.http.get<ArcGisResponseTypeStatistics>(url)
       .pipe(map(x => x.features[0].attributes));
   }
 }
+
+type ArcGisResponseTypeListStates = {
+  features: {
+    attributes: {
+      Bundesland: string;
+      IdBundesland: number;
+    }
+  }[],
+  fields: any[];
+};
+
+type ArcGisResponseTypeStatistics = {
+  features: {
+    attributes: Statistics
+  }[],
+  fields: any[];
+};

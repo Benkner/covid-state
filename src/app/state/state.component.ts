@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ApiService } from '../api/api.service';
 import { AreaType } from '../_classes/areaType';
 import { State } from '../_classes/state';
+import { ApiService } from '../_services/api.service';
 import { StoreService } from '../_services/store.service';
 
 @Component({
