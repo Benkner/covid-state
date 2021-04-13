@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LocationService } from './location/location.service';
 import { LoadingService } from './_services/loading.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class AppComponent {
   ];
 
   constructor(
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private initEarly: LocationService
   ) {
     this.loading$ = this.loadingService.getLoading$();
   }
