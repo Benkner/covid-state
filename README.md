@@ -1,5 +1,5 @@
 # Covid-State
-Code sample for showing some statistics fetched by an API.  
+Code sample for showing some data fetched by an API.  
 Shows simple covid statistics for germany and its states.
 
 ## [Demo](https://benkner.github.io/covid-state) 
