@@ -5,13 +5,15 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --prod",
+    "build:prod": "npm run licenses:custom && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
+    "licenses:summary": "npx license-checker --summary --production --out licenses/licenses-summary.txt",
+    "licenses:custom": "npx license-checker --json --customPath licenses/licenses-custom-format.json --production --out licenses/licenses-custom.json",
     "stats:create": "ng build --stats-json",
     "stats:show": "webpack-bundle-analyzer dist/covid-state/stats.json",
     "e2e": "ng e2e",
-    "deploy:ghp": "ng build --prod -c=ghp && npx angular-cli-ghpages -no-silent --dir=dist/github-pages/covid-state"
+    "deploy:ghp": "npm run build:prod -c=ghp && npx angular-cli-ghpages -no-silent --dir=dist/github-pages/covid-state"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +48,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.5.4",
+    "license-checker": "25.0.1",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.3",
