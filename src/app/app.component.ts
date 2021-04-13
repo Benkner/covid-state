@@ -8,7 +8,7 @@ import { LoadingService } from './_services/loading.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'covid-state';
+  title = 'Covid-State';
   loading$: Observable<boolean>;
 
   tabItems = [

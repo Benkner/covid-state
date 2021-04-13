@@ -24,9 +24,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'covid-state'`, () => {
+  it(`should have as title 'Covid-State'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('covid-state');
+    expect(app.title).toEqual('Covid-State');
   });
 });
