@@ -16,7 +16,6 @@ import { TimeSelectionComponent } from './time-selection/time-selection.componen
 import { LoadingInterceptorService } from './_services/loading-interceptor.service';
 import { HeaderComponent } from './_layout/header/header.component';
 import { NotFoundComponent } from './_layout/not-found/not-found.component';
-import { LocationComponent } from './location/location.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { LocationComponent } from './location/location.component';
     TimeSelectionComponent,
     StateComponent,
     HeaderComponent,
-    NotFoundComponent,
-    LocationComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
