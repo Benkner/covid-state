@@ -8,7 +8,7 @@ export class SnackService {
     private snackBar: MatSnackBar
   ) { }
 
-  show(msg: string) {
+  show(msg: string): void {
     this.snackBar.open(msg);
   }
 }
