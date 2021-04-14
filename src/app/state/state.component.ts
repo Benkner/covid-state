@@ -4,6 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 import { AreaType } from '../_classes/areaType';
 import { State } from '../_classes/state';
 import { ApiService } from '../_services/api.service';
+import { SnackService } from '../_services/snack.service';
 import { StoreService } from '../_services/store.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class StateComponent implements OnInit, OnDestroy {
   constructor(
     private store: StoreService,
     private api: ApiService,
+    private snack: SnackService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,9 @@ export class StateComponent implements OnInit, OnDestroy {
           if (this.stateSelected === undefined && this.states.length > 0) {
             this.setSelectedState(this.states[0]);
           }
+        },
+        () => {
+          this.snack.show('Could not fetch states');
         });
 
     this.store.getStateSelected$().subscribe(

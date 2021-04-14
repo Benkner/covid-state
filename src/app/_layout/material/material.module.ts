@@ -7,6 +7,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -21,7 +22,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatToolbarModule,
         MatSliderModule,
         MatCardModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        MatSnackBarModule
     ],
     exports: [
         MatButtonModule,
@@ -33,7 +35,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatToolbarModule,
         MatSliderModule,
         MatCardModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        MatSnackBarModule
     ]
 })
 export class MaterialModule { }

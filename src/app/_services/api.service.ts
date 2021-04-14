@@ -20,6 +20,7 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
+  /** Requests a list of states by the API. */
   getStateList(): Observable<State[]> {
     const url = this.apiUrlRki +
       "where=1%3D1" +
@@ -56,6 +57,7 @@ export class ApiService {
   }
 }
 
+/** Response type of the arcGis API for the list of states. */
 type ArcGisResponseTypeListStates = {
   features: {
     attributes: {
@@ -66,6 +68,7 @@ type ArcGisResponseTypeListStates = {
   fields: any[];
 };
 
+/** Response type of the arcGis API for the requested statistics. */
 type ArcGisResponseTypeStatistics = {
   features: {
     attributes: Statistics

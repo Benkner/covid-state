@@ -4,6 +4,7 @@ import { AreaType } from '../_classes/areaType';
 import { State } from '../_classes/state';
 import { Statistics } from '../_classes/statistics';
 import { ApiService } from './api.service';
+import { SnackService } from './snack.service';
 import { StoreService } from './store.service';
 
 /** Updating the statistics. */
@@ -17,7 +18,8 @@ export class StatisticsService {
 
   constructor(
     private api: ApiService,
-    private store: StoreService
+    private store: StoreService,
+    private snack: SnackService
   ) {
     this.store.getAreaTypeSelected$().subscribe(value => {
       this.areaTypeSelected = value;
@@ -38,19 +40,26 @@ export class StatisticsService {
   }
 
   private update(): void {
+    this.statistics.next({});
     switch (this.areaTypeSelected) {
       case AreaType.Country:
-        this.api.getHistoryGermany(this.weeksSelected * 7).subscribe(result => {
-          this.statistics.next(result);
-        });
+        this.api.getHistoryGermany(this.weeksSelected * 7).subscribe(
+          result => {
+            this.statistics.next(result);
+          },
+          () => {
+            this.snack.show('Could not fetch statistics');
+          });
         break;
       case AreaType.State:
         if (this.stateSelected !== undefined) {
-          this.api.getHistoryState(this.weeksSelected * 7, this.stateSelected.id).subscribe(result => {
-            this.statistics.next(result);
-          });
-        } else {
-          this.statistics.next({});
+          this.api.getHistoryState(this.weeksSelected * 7, this.stateSelected.id).subscribe(
+            result => {
+              this.statistics.next(result);
+            },
+            () => {
+              this.snack.show('Could not fetch statistics');
+            });
         }
         break;
     }
