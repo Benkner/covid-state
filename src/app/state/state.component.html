@@ -3,7 +3,7 @@
     <mat-form-field appearance="outline" class="state-selection">
         <mat-label>State</mat-label>
         <mat-select [(value)]='stateSelected' [compareWith]="compareState"
-            (selectionChange)="setSelectedState($event.value)">
+            (selectionChange)="setSelectedState($event.value)" aria-label="State selection">
             <mat-option [value]=undefined></mat-option>
             <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
         </mat-select>
