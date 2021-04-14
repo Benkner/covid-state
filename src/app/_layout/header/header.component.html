@@ -9,3 +9,9 @@
     <div></div>
 
 </mat-toolbar>
+
+<!-- Reserving space for progress bar -->
+<div class="progress-space">
+    <mat-progress-bar class="progress-space" *ngIf='(loading$|async) === true' color='accent' mode="query">
+    </mat-progress-bar>
+</div>

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LoadingService } from 'src/app/_services/loading.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() title!: string;
+  loading$: Observable<boolean>;
 
-  constructor() { }
+  constructor(
+    private loadingService: LoadingService
+  ) {
+    this.loading$ = this.loadingService.getLoading$();
+  }
 
   ngOnInit(): void {
   }

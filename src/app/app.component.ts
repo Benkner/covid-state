@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { LoadingService } from './_services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +7,9 @@ import { LoadingService } from './_services/loading.service';
 })
 export class AppComponent {
   title = 'Covid-State';
-  loading$: Observable<boolean>;
 
   tabItems = [
     { label: 'Germany', path: 'germany' },
     { label: 'State', path: 'state' }
   ];
-
-  constructor(
-    private loadingService: LoadingService
-  ) {
-    this.loading$ = this.loadingService.getLoading$();
-  }
-
 }
