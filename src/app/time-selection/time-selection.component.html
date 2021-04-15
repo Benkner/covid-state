@@ -5,7 +5,5 @@
         <mat-slider matInput color='primary' type="range" tickInterval="1" min="1" max="4" step="1" thumbLabel=true
             [ngModel]='weeksSelected$|async' (input)="setWeeks($event.value)" aria-label="Time selection">
         </mat-slider>
-        <!-- <input matInput color='primary' type="range" tickInterval="1" min="1" max="4" step="1" [(ngModel)]='weeksSelected'
-            (input)="setWeeks2()"> -->
     </div>
 </mat-card>

@@ -39,6 +39,7 @@ export class StatisticsService {
     return this.statistics.asObservable();
   }
 
+  /** Update statistics with current data from store. */
   private update(): void {
     this.statistics.next({});
     switch (this.areaTypeSelected) {

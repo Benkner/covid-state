@@ -8,6 +8,7 @@ export class SnackService {
     private snackBar: MatSnackBar
   ) { }
 
+  /** Shows a simple message. */
   show(msg: string): void {
     this.snackBar.open(msg);
   }

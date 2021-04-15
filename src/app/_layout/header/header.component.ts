@@ -23,9 +23,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showInfo() {
-    this.dialog.open(InfoComponent, {
-    });
+  showInfo(): void {
+    this.dialog.open(InfoComponent);
   }
 
 }

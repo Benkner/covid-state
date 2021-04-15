@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+/** Showing 404 information with possibility to return to main page. */
 @Component({
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',
