@@ -6,7 +6,14 @@
     </div>
 
     <!-- Icons to the right -->
-    <div></div>
+    <div>
+        <button mat-icon-button type="button" [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item type="button" (click)='showInfo()'>Info</button>
+        </mat-menu>
+    </div>
 
 </mat-toolbar>
 

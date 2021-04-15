@@ -17,6 +17,7 @@ import { HeaderComponent } from './_layout/header/header.component';
 import { MaterialModule } from './_layout/material/material.module';
 import { NotFoundComponent } from './_layout/not-found/not-found.component';
 import { LoadingInterceptorService } from './_services/loading-interceptor.service';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoadingInterceptorService } from './_services/loading-interceptor.servi
     TimeSelectionComponent,
     StateComponent,
     HeaderComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

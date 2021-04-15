@@ -1,0 +1,10 @@
+<h1 mat-dialog-title cdkFocusInitial>Info</h1>
+
+<div mat-dialog-content>
+    Showing statistics by reported date.<br>
+    Time of the data: <i>{{(statistics$|async)?.status || 'No statistics available'}}</i>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]=undefined>CLOSE</button>
+</div>
