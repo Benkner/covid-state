@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1618520352765,
+  "timestamp": 1618521246567,
   "index": "https://benkner.github.io/covid-state/index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "https://benkner.github.io/covid-state/common.c9b6c595e23a211cd9a2.js",
         "https://benkner.github.io/covid-state/favicon.ico",
         "https://benkner.github.io/covid-state/index.html",
-        "https://benkner.github.io/covid-state/main.e6c604f383d846f2b6ca.js",
+        "https://benkner.github.io/covid-state/main.ff78c53a609be5289c81.js",
         "https://benkner.github.io/covid-state/manifest.webmanifest",
         "https://benkner.github.io/covid-state/polyfills.1f48151810f71fa38e45.js",
         "https://benkner.github.io/covid-state/runtime.2f8df0cece2cd027a1aa.js",
@@ -59,9 +59,9 @@
     "https://benkner.github.io/covid-state/assets/icons/c-72.png": "06ea6d6dec274a659477dd70b12a17f365da1277",
     "https://benkner.github.io/covid-state/assets/icons/c-96.png": "35b68324d2dad839a95112301b5027da4bfd3cbc",
     "https://benkner.github.io/covid-state/common.c9b6c595e23a211cd9a2.js": "7795144924d4e6240605e98be17f1e61fc620571",
-    "https://benkner.github.io/covid-state/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://benkner.github.io/covid-state/index.html": "34ee45c6e4ce56e5afce20bb45989d0d85585bf6",
-    "https://benkner.github.io/covid-state/main.e6c604f383d846f2b6ca.js": "5f355f6bc32dbbabec57d3a463110d69ca31da64",
+    "https://benkner.github.io/covid-state/favicon.ico": "de64aea6e6a7b113601d2cbc1323e5d6c8977945",
+    "https://benkner.github.io/covid-state/index.html": "1975595e94c73ce6dc918dfea1b7f6f04a3dbb15",
+    "https://benkner.github.io/covid-state/main.ff78c53a609be5289c81.js": "718db58170ad0661861882a91154378fb8061a3c",
     "https://benkner.github.io/covid-state/manifest.webmanifest": "eaf161aad05d701e8ece616a6406c254b73f94a6",
     "https://benkner.github.io/covid-state/polyfills.1f48151810f71fa38e45.js": "506855517e1835c4f3db5c7d25569b95bee71560",
     "https://benkner.github.io/covid-state/runtime.2f8df0cece2cd027a1aa.js": "98a49b085d4689930ec151c94af25f8d68e806ce",
