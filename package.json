@@ -1,6 +1,6 @@
 {
   "name": "covid-state",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,6 +13,7 @@
     "e2e": "ng e2e",
     "deploy:ghp": "ng build --prod -c=ghp && npx angular-cli-ghpages -no-silent --dir=dist/github-pages/covid-state"
   },
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.9",
