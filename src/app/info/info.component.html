@@ -1,8 +1,14 @@
 <h1 mat-dialog-title>Info</h1>
 
 <div mat-dialog-content>
-    Showing statistics by reported date.<br>
-    Time of current data: <i>{{(statistics$|async)?.status || 'No statistics available'}}</i>
+    <p>
+        Showing statistics by reported date.<br>
+        Time of current data: <i>{{(statistics$|async)?.status || 'No statistics available'}}</i>
+    </p>
+    <p>
+        If no data can be fetched,<br>
+        it is best to try after 19:00 CET
+    </p>
 </div>
 
 <div mat-dialog-actions align="end">

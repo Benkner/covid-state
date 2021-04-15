@@ -27,25 +27,25 @@ export class StateComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.store.setAreaTypeSelected(AreaType.State);
 
-    this.api.getStateList()
+    this.api.getStateList().subscribe(
+      result => {
+        this.states = result;
+
+        // Set first state available
+        if (this.stateSelected === undefined && this.states.length > 0) {
+          this.setSelectedState(this.states[0]);
+        }
+      },
+      () => {
+        this.snack.show('Could not fetch states');
+      });
+
+    this.store.getStateSelected$()
       .pipe(takeUntil(this.destroy$))
       .subscribe(
-        result => {
-          this.states = result;
-
-          // Set first state available
-          if (this.stateSelected === undefined && this.states.length > 0) {
-            this.setSelectedState(this.states[0]);
-          }
-        },
-        () => {
-          this.snack.show('Could not fetch states');
+        state => {
+          this.stateSelected = state;
         });
-
-    this.store.getStateSelected$().subscribe(
-      state => {
-        this.stateSelected = state;
-      });
   }
 
   ngOnDestroy(): void {
