@@ -4,7 +4,7 @@
         <mat-label>State</mat-label>
         <mat-select [(value)]='stateSelected' [compareWith]="compareState"
             (selectionChange)="setSelectedState($event.value)" aria-label="State selection" role="select">
-            <mat-option [value]=undefined aria-label="No state selected" role="option"></mat-option>
+            <mat-option [value]=undefined aria-label="No state selected" role="select-item"></mat-option>
             <mat-option *ngFor="let state of states" [value]="state" aria-label="Selected state" role="option">
                 {{state.name}}
             </mat-option>

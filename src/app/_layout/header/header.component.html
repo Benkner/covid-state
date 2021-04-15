@@ -7,11 +7,11 @@
 
     <!-- Menu icon(s) -->
     <div>
-        <button mat-icon-button type="button" [matMenuTriggerFor]="menu">
+        <button mat-icon-button type="button" [matMenuTriggerFor]="menu" aria-label="menu">
             <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item type="button" (click)='showInfo()'>Info</button>
+            <button mat-menu-item type="button" (click)='showInfo()' aria-label="info">Info</button>
         </mat-menu>
     </div>
 
@@ -19,6 +19,7 @@
 
 <!-- Reserving space for progress bar -->
 <div class="progress-space">
-    <mat-progress-bar class="progress-space" *ngIf='(loading$|async) === true' color='accent' mode="query">
+    <mat-progress-bar class="progress-space" *ngIf='(loading$|async) === true' color='accent' mode="query"
+        aria-label="progress">
     </mat-progress-bar>
 </div>

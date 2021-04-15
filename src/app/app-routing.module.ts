@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GermanyComponent } from './germany/germany.component';
-import { StateComponent } from './state/state.component';
 
 const routes: Routes = [
   {
@@ -9,11 +7,11 @@ const routes: Routes = [
   },
   {
     path: 'germany',
-    component: GermanyComponent
+    loadChildren: () => import('./germany/germany.module').then(m => m.GermanyModule)
   },
   {
     path: 'state',
-    component: StateComponent
+    loadChildren: () => import('./state/state.module').then(m => m.StateModule)
   },
   {
     path: 'not-found',
